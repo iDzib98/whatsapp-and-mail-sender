@@ -22,7 +22,9 @@ app.post("/email/", (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: process.env.SMTP_SECURE, // upgrade later with STARTTLS
     auth: {
       user: process.env.EMAIL,
       pass: process.env.PASSWORD,
