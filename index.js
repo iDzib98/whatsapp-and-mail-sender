@@ -74,7 +74,10 @@ app.get("/", (req, res) => {
 
 const client = new Client({
     authStrategy: new LocalAuth(),
-    puppeteer: { headless: false }
+    puppeteer: { 
+      headless: false,
+      executablePath: process.env.CHROME_PATH,
+     }
 });
 
 client.initialize();
